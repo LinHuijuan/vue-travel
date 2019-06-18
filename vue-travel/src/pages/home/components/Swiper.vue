@@ -24,7 +24,7 @@ export default {
       ]
     }
   },
-  components: { Swiper, Slide }
+  components: {Swiper, Slide}
 }
 </script>
 
@@ -36,7 +36,7 @@ export default {
     overflow: hidden;
     width: 100%;
     height: 0;
-    padding-bottom: 31.25%;
+    padding-bottom: 30%;
     background: $bgColor;
     .swiper-img{
       width: 100%;
