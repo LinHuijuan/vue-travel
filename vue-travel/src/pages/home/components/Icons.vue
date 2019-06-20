@@ -1,10 +1,10 @@
 <template>
     <div class="icons">
-        <Swiper>
+        <Swiper :autoPlay="false">
           <Slide v-for="(page,index) of pages" :key="index">
             <div class="icon" v-for="item of page" :key="item.id">
                 <div class="icon-img">
-                    <img class="icon-img-con" :src="item.imgurl"/>
+                    <img class="icon-img-con" :src="item.imgUrl"/>
                 </div>
                 <p class="icon-desc">{{item.desc}}</p>
             </div>
@@ -18,66 +18,13 @@ import { Swiper, Slide } from 'vue-swiper-component'
 export default {
   name: 'HomeIcons',
   components: {Swiper, Slide},
-  data () {
-    return {
-      iconsList: [
-        {
-          id: '0001',
-          imgurl: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '热门景点'
-        },
-        {
-          id: '0002',
-          imgurl: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '热门景点'
-        },
-        {
-          id: '0003',
-          imgurl: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '热门景点'
-        },
-        {
-          id: '0004',
-          imgurl: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '热门景点'
-        },
-        {
-          id: '0005',
-          imgurl: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '热门景点'
-        },
-        {
-          id: '0006',
-          imgurl: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '热门景点'
-        },
-        {
-          id: '0007',
-          imgurl: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '热门景点'
-        },
-        {
-          id: '0008',
-          imgurl: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '热门景点'
-        },
-        {
-          id: '0009',
-          imgurl: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '热门景点'
-        },
-        {
-          id: '0010',
-          imgurl: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '热门景点'
-        }
-      ]
-    }
+  props: {
+    list: Array
   },
   computed: {
     pages () {
       const pages = []
-      this.iconsList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
